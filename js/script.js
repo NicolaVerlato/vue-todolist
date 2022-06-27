@@ -3,7 +3,6 @@ var app = new Vue(
         el: '#root',
         data: {
             textNewTodo: '',
-            newTodo: {},
             todos: [
                 {
                     text: 'Fare i compiti',
@@ -22,9 +21,10 @@ var app = new Vue(
         methods: {
             addTodo(todos, newTodo) {
                 if(this.textNewTodo.length > 0) {
-                    newTodo.text = (this.textNewTodo);
-                    newTodo.done = false;
-                    todos.push(newTodo);
+                    todos.push({
+                        text: this.textNewTodo,
+                        done: false
+                    });
                 }
                 this.textNewTodo = '';
             },
