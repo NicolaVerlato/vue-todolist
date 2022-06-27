@@ -2,6 +2,7 @@ var app = new Vue(
     {
         el: '#root',
         data: {
+            currentTodo: 0,
             textNewTodo: '',
             newTodo: {},
             todos: [
@@ -30,6 +31,9 @@ var app = new Vue(
             },
             removeTodo(index) {
                 this.todos.splice(index, 1);
+            },
+            markedText(currentTodo) {
+                this.todos[currentTodo].done = !this.todos[currentTodo].done;
             }
         }
     },
